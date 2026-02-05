@@ -1,7 +1,14 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:sign_up_app/screens/login_screen.dart';
+// import 'package:sign_up_app/screens/login_screen.dart';
+import 'package:sign_up_app/widgets/components/scaffold_widget.dart';
 
-void main() {
+void main() async {
+  
+    WidgetsFlutterBinding.ensureInitialized();
+
+    await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -29,9 +36,10 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: .fromSeed(seedColor: const Color.fromARGB(255, 68, 214, 54)),
       ),
       home: const LoginScreen(),
+      // home:  MyScaffoldWidget(),
     );
   }
 }
